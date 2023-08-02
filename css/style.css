@@ -80,6 +80,12 @@ dd {
   text-decoration: none;
 }
 
+.wrapper {
+  max-width: 100vw;
+  overflow: hidden;
+  width: 100%;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -148,7 +154,6 @@ dd {
 }
 
 .intro {
-  height: 800px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -159,12 +164,28 @@ dd {
 
 .intro_img {
   position: relative;
-  height: 800px;
   width: 100%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 .intro_img img {
   width: 100%;
   height: 100%;
+}
+
+.intro_img:first-child {
+  -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+}
+
+.intro_img:last-child {
+  -webkit-transform: translateX(1000px);
+          transform: translateX(1000px);
+}
+
+.intro.visible .intro_img {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 
 .intro_info_border {
@@ -262,9 +283,52 @@ section {
   opacity: 0;
   right: -10%;
   z-index: -1;
+  -webkit-animation: run 1s infinite;
+          animation: run 1s infinite;
 }
 
+.goToCatalog_main_li {
+  opacity: 0;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.goToCatalog_main_li.visible {
+  opacity: 1;
+}
+
+@-webkit-keyframes run {
+  0% {
+    -webkit-transform: translate(-100px, -50%);
+            transform: translate(-100px, -50%);
+  }
+  50% {
+    -webkit-transform: translate(100px, -50%);
+            transform: translate(100px, -50%);
+  }
+  100% {
+    -webkit-transform: translate(-100px, -50%);
+            transform: translate(-100px, -50%);
+  }
+}
+
+@keyframes run {
+  0% {
+    -webkit-transform: translate(-100px, -50%);
+            transform: translate(-100px, -50%);
+  }
+  50% {
+    -webkit-transform: translate(100px, -50%);
+            transform: translate(100px, -50%);
+  }
+  100% {
+    -webkit-transform: translate(-100px, -50%);
+            transform: translate(-100px, -50%);
+  }
+}
 .goToCatalog_main li:hover img {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
   opacity: 1;
   z-index: 2;
 }
@@ -363,6 +427,23 @@ section {
       -ms-flex-direction: column;
           flex-direction: column;
   border: 2px solid #A27035;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.advantages_item:first-child {
+  -webkit-transform: translateX(-1000px);
+          transform: translateX(-1000px);
+}
+
+.advantages_item:last-child {
+  -webkit-transform: translateX(1000px);
+          transform: translateX(1000px);
+}
+
+.advantages_inner.visible .advantages_item {
+  -webkit-transform: translate(0);
+          transform: translate(0);
 }
 
 .advantages_btn {
