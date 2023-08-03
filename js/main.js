@@ -1,4 +1,13 @@
-
+$(document).ready(function() {
+  // При клике на элемент с классом "logo"
+  $(".burger").click(function() {
+    // Добавляем класс "active" к элементу с классом "compass-nav"
+    $(".header_intro_inner").toggleClass("open");
+    $(".burger").toggleClass("active");
+    $("body").toggleClass("hold");
+ 
+  });
+});
 
 $(document).ready(function() {
   $(".accordion-button").on("click", function() {
