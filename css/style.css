@@ -560,6 +560,7 @@ section {
 }
 
 .accordion-button {
+  padding: 0;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -573,16 +574,19 @@ section {
   border: 2px solid #fff;
   background: none;
 }
+.accordion-button span {
+  margin: 0;
+}
 .accordion-button span:first-child {
   height: 2px;
   border-radius: 2px;
-  -webkit-transform: translate(-2px, 1px);
-          transform: translate(-2px, 1px);
+  -webkit-transform: translate(0px, 1px);
+          transform: translate(0px, 1px);
 }
 .accordion-button span:last-child {
   height: 2px;
-  -webkit-transform: rotate(90deg) translate(-1px, 2px);
-          transform: rotate(90deg) translate(-1px, 2px);
+  -webkit-transform: rotate(90deg) translate(0px, 0);
+          transform: rotate(90deg) translate(0px, 0);
 }
 .accordion-button span {
   background: #201C55;
