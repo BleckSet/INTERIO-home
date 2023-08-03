@@ -1,13 +1,31 @@
-$(document).ready(function() {
-  // При клике на элемент с классом "logo"
+ $(document).ready(function() {
+  $('a').on('click', function(event) {
+    event.preventDefault();
+    const targetId = $(this).attr('href'); 
+    const $targetElement = $(targetId);
+    if ($targetElement.length) {
+      const headerOffset = 100; 
+      const elementPosition = $targetElement.offset().top;
+      const offsetPosition = elementPosition - headerOffset;
+      $('html, body').animate({
+        scrollTop: offsetPosition 
+      }, 1000); 
+    }
+  });
+});
+  // Обработчик события "click" для элемента с классом "burger" (выпадающее меню)
   $(".burger").click(function() {
-    // Добавляем класс "active" к элементу с классом "compass-nav"
     $(".header_intro_inner").toggleClass("open");
     $(".burger").toggleClass("active");
     $("body").toggleClass("hold");
- 
   });
-});
+
+  // Обработчик события "click" для элементов с классом "logo" внутри хедера
+  $(".header_intro_inner a").click(function() {
+    $(".header_intro_inner").removeClass("open");
+    $(".burger").removeClass("active");
+    $("body").removeClass("hold");
+  });
 
 $(document).ready(function() {
   $(".accordion-button").on("click", function() {
@@ -21,7 +39,6 @@ $(document).ready(function() {
     content.slideToggle();
   });
 });
-
 
 
 gsap.registerPlugin(ScrollTrigger);
